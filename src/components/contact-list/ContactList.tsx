@@ -5,6 +5,7 @@ import {
   CardActions,
   CardContent,
   IconButton,
+  Link,
   Typography,
   useMediaQuery,
 } from "@mui/material";
@@ -49,10 +50,18 @@ export const ContactList = () => {
                 sx={{
                   opacity: isExcluded ? 0.3 : 1,
                   flex: 1,
+                  pb: 0,
                 }}
               >
-                <Typography sx={{ fontSize: 16, fontWeight: 400 }}>
-                  {`${contact.firstName} ${contact.lastName}`}
+                <Typography
+                  sx={{ fontSize: 16, fontWeight: 400 }}
+                  gutterBottom={isWideScreen}
+                >
+                  <Link
+                    href={`https://www.europarl.europa.eu/meps/en/${contact.id}`}
+                    underline="none"
+                    target="_blank"
+                  >{`${contact.firstName} ${contact.lastName}`}</Link>
                 </Typography>
                 <Typography variant="body2">{`${contact.country} (${contact.party})`}</Typography>
                 <Typography variant="body2" color="text.secondary">
